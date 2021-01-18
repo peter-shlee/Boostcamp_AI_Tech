@@ -1,4 +1,4 @@
-# Week 1 - Python
+# Week 1 - Python Basics For AI
 
 ## 목차
 
