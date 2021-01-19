@@ -32,14 +32,14 @@
 
 * 파이썬에는 다음과 같은 자료형이 있다.
 
-  * 정수형 (int)
-    * ex) 1, 2, 3, 100, -9
-  * 실수형 (float)
-    * ex) 3.14, 3.0
-  * 문자형 (str)
+  * 정수형 (```int```)
+    * ex) ```1```, ```2```, ```3```, ```100```, ```-9```
+  * 실수형 (```float```)
+    * ex) ```3.14```, ```3.0```
+  * 문자형 (```str```)
     * 따옴표(```'```, ```"```)에 둘러싸인 문자. ex) "hello world"
-  * 논리 자료형 (bool)
-    * True, False
+  * 논리 자료형 (```bool```)
+    * ```True```, ```False```
   
   파이썬은 동적 타입 바인딩(Dynamic Type Binding) 언어이기 때문에 런타임에 변수의 자료형이 결정되고, 또한 다른 자료형으로 변경될 수 있다.
 
@@ -322,7 +322,7 @@ C, Java 등의 언어와 다른 점은 다음과 같다.
       break
   ```
 
-  * else
+  * ```else```
   
   반복문의 조건을 만족시키지 못해 반복이 종료된 경우 ```else```문을 수행한다
   
@@ -495,6 +495,19 @@ C, Java 등의 언어와 다른 점은 다음과 같다.
 * docstring
   * 파이썬 함수에 대한 상세스펙을 작성
   * 함수명 아래에 세개의 따옴표로 docstring 영역을 표시한다
+  
+  ```Python
+  def func(int: arg1, float arg2) -> string:
+      """[summary]
+
+      Args:
+          int (arg1): [description]
+          floatarg2 ([type]): [description]
+
+      Returns:
+          string: [description]
+      """    
+  ```
   
 * 파이썬 코딩 컨벤션
   * flake8 모듈과 black 모듈로 체크 (conda install -c anaconda <모듈명>)
