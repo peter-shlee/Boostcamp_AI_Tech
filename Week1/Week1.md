@@ -6,7 +6,7 @@
 
 * [Day 2 - 파이썬 기초 문법](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week1/Day2.md)
 
-* Day 3
+* [Day 3 - 파이썬 기초 문법 2](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week1/Day3.md)
 
 * Day 4
 
