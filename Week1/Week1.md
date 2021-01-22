@@ -10,4 +10,4 @@
 
 * [Day 4 - 파이썬 기초 문법 3](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week1/Day4.md)
 
-* Day 5
+* [Day 5 - 파이썬으로 데이터 다루기](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week1/Day5.md)
