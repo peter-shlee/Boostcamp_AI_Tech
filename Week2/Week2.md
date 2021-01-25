@@ -2,7 +2,7 @@
 
 ## 목차
 
-* Day 6 - Numpy / 벡터 / 행렬
+* [Day 6 - Numpy / 벡터 / 행렬](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week2/Day6.md)
 
 * Day 7 - 경사하강법
 
