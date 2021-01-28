@@ -8,6 +8,6 @@
 
 * [Day 8 - Pandas / 딥러닝 학습방법 이해하기](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week2/Day8.md)
 
-* Day 9 - Pandas II / 확률론
+* [Day 9 - Pandas II / 확률론](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week2/Day9.md)
 
 * Day 10 - 시각화 / 통계학
