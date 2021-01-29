@@ -10,4 +10,4 @@
 
 * [Day 9 - Pandas II / 확률론](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week2/Day9.md)
 
-* Day 10 - 시각화 / 통계학
+* [Day 10 - 시각화 / 통계학](https://github.com/shlee4290/Boostcamp_AI_Tech/blob/main/Week2/Day10.md)
