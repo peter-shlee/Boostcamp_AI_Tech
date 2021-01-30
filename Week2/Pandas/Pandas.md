@@ -16,3 +16,11 @@
 
 * [Built in Function](./07_built_in_function.md)
   
+* [Group by, Hierarchical index](./08_groupby/08_group_by.md)
+  
+* [Pivot Table, Crosstab](./09_pivot_crosstab.md)
+  
+* [Merge, Concat](./10_merge_concat.md)
+  
+* [DB, Persistence](./11_db_persistence.md)
+  
