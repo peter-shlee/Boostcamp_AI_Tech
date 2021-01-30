@@ -2,6 +2,8 @@
 
 ## Pandas II
 
+* Pandas에 대한 자세한 학습정리는 [여기](./Pandas/Pandas.md)를 참고
+  
 ### Groupby
 
 * SQL의 GROUP BY와 비슷함
@@ -29,8 +31,6 @@
 * Database connection
 * xls
 * pickle
-
-pandas의 자세한 사용법은 코드 예시를 이용하여 따로 정리한다
 
 ## 확률론
 
