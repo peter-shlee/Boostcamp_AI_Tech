@@ -3,7 +3,7 @@
 ## 시각화
 
 * python의 데이터 시각화 도구 matplotlib와 seaborn 사용법을 배움
-* 자세한 내용은 코드를 이용해 따로 정리 예정
+* 자세한 학습정리는 [여기](./Graph/Graph.md)
 
 ## 통계학
 
