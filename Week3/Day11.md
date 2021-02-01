@@ -1,4 +1,4 @@
-# Day 11 - 베이즈 통계학, Pytorch, Deep learning historical review, MLP
+# Day 11 - 베이즈 통계학, Pytorch, Deep learning 기본 용어 설명, MLP
 
 ## 베이즈 통계학
 
