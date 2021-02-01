@@ -10,7 +10,7 @@
 
 * [Week 2 - AI Math](./Week2/Week2.md)
 
-* Week 3
+* [Week 3 - Deep Learning Basics](./Week3/Week3.md)
 
 * Week 4
 
