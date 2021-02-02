@@ -8,7 +8,7 @@
 * convolution 연산의 수학적 의미는 kernel을 이용해 신호를 국소적으로 증폭 또는 감소시켜 정보를 추출, 필터링 하는 것
 * 영상처리에서는 convolution을 이용해 필터를 씌우거나 특정 부분이 강조되게 하는 등 보정에 이용 (kernel의 종류에 따라 효과가 달라짐)  
   예시) https://setosa.io/ev/image-kernels/
-* convolution 연산은 다양한 1차원뿐 아니라 다양한 차원에서 가능함
+* convolution 연산은 1차원뿐 아니라 다양한 차원에서 가능함
 * 2차원에서의 convolution 연산은 다음과 같음
     ![2차원에서 convolution 연산](./img/2d_conv.png)
     element-wise multiplication을 한 뒤 값들을 모두 더함
