@@ -82,3 +82,7 @@
   각 문제별 loss function은 다음과 같음
   ![loss functions](./img/lossFunction.png)
   하지만 항상 이 loss function들을 쓰는 것이 정답은 아니다
+
+## MLP 실습
+
+[여기](./MLP%20실습/MLP%20실습.md)에 따로 정리
