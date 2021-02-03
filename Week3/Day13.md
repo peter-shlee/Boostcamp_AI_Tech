@@ -54,6 +54,8 @@
 
 ![calculate the number of parameter 1](./img/calculateTheNumberOfParameter1.png)
 ![calculate the number of parameter 2](./img/calculateTheNumberOfParameter2.png)
+앞쪽의 convolution layer보다 뒤쪽의 fully connected layer의 parameter가 훨씬 많은 것을 확인할 수 있다.  
+이것이 CNN fully connected layer가 점점 사라지는 이유이다
 
 #### 1 x 1 convolution
 
