@@ -1,6 +1,6 @@
-# Day 12 - Optimization, CNN
+# Day 12 - Optimization, CNN 첫걸음
 
-## CNN (convolutional neural network)
+## CNN 첫걸음
 
 * convolution 연산은 kernel을 입력벡터 상에서 움직여가며 선형모데로가 합성함수가 적용되는 구조
 * **kernel의 위치만 바뀔 뿐 값이 달라지지 않음**
