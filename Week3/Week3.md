@@ -6,7 +6,7 @@
 
 * [Day 12 - Optimization, CNN 첫걸음](./Day12.md)
 
-* Day 13 - CNN, Modern CNN, Computer vision applications
+* [Day 13 - CNN, Modern CNN, Computer vision applications](./Day13.md)
 
 * Day 14 - RNN, Transformer
 
