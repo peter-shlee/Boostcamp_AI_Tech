@@ -8,6 +8,6 @@
 
 * [Day 13 - CNN, Modern CNN, Computer vision applications](./Day13.md)
 
-* Day 14 - RNN, Transformer
+* [Day 14 - RNN, Transformer](./Day14.md)
 
 * Day 15 - Generative models
