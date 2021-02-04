@@ -4,7 +4,7 @@
 
 ### Sequential Models
 
-* 소리, 문자열, 주가 등의 시간 순서에 따라 나열된 시계열(time series) 데이터를 sequence data라고 한다
+* 소리, 문자열, 주가 등의 시간 순서에 따라 나열된 시계열(time series) 데이터를 sequence data라고 한다
 * sequence data는 앞뒤 맥락 없이는 정확히 예측할 수 없다
 * 조건부 확률과 베이즈 정리를 이용하면 이전 sequence의 정보를 가지고 앞으로 발생할 데이터의 확률 분포를 구할 수 있다
   ![조건부 확률](./img/조건부확률sequence.png)
@@ -17,7 +17,7 @@
 
 ### RNN (Recurrent Neural Network)
 
-* 다음과 같이 과거의 정보를 한데 묶어 (잠재변수로 인코딩) 가변길이 data를 고정길이 data로 바꿔 사용하는 방법도 있다
+* 다음과 같이 과거의 정보를 한데 묶어 (잠재변수로 인코딩) 가변길이 data를 고정길이 data처럼 사용하는 방법도 있다
 * 이렇게 잠재변수(hidden state)를 **반복 사용**하여 시퀀스 데이터의 패턴을 학습하는 모델이 RNN(Recurrent Neural Network)이다
   ![RNN 1](./img/RNN1.png)
   ![RNN 2](./img/RNN2.png)
@@ -78,7 +78,7 @@
       * cell state를 이용하여 현재 layer의 output을 계산한다
       ![output gate](./img/outputGate.png)
 
-### GRU
+### GRU (Gated Recurrent Units)
 
 ![GRU](./img/GRU.png)
 
