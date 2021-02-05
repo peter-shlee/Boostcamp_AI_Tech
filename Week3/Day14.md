@@ -90,7 +90,60 @@
 
 ## Transformer
 
-// TODO
+* transformer는 RNN처럼 sequentioal data를 처리하는 model이다
+* RNN과는 달리 재귀적 구조로 되어있지 않다
+* transformer는 attention 이라는 구조를 활용한다
+* RNN처럼 문장을 단어별로 끊어서 입력하는게 아니라, 문장을 통째로 입력한다
+  ![transformer](./img/transformer1.png)
+  ![transformer](./img/transformer2.png)
+
+### encoding
+* encoding 과정은 다음과 같이 이루어진다
+* transformer는 우선 각각의 단어를 embedding vector로 변환한다
+  ![embedding vcetor](./img/transformer_embedding_vectors.png)
+* 변환된 embedding vector들을 Self-Attention에 넣으면 각 단어들간의 관계가 계산된다
+  ![encoder 1](./img/transformer_encoder.png)
+* 각 단어들간의 관계를 계산하는 과정은 다음과 같다
+* embedding vector 하나로 Query, Key, Value 총 3개의 vector를 계산해 낸다  
+  (각각을 계산할 때는 3개의 neural network를 이용한다. 각각의 neural network의 가중치 벡터는 $W^Q$, $W^K$, $W^V$)
+  ![encoder 3](./img/transformer_encoder3.png)
+* 해당 단어의 Query vector와 모든 단어들의 Key vector를 곱하여 다른 단어들과 얼마나 관계가 있는지를 나타내는 Score를 계산한다
+* 여기에서 중요한 것은 **다른 모든 단어들과 함께 연산을 한다는 것**이다. 이렇게 함으로서 똑같은 단어가 input으로 들어왔더라도, 주변 단어들에 따라 encoding된 값이 달라지게 된다
+* 이 attention이라는 구조는 MLP보다 더 flexible한 model이고, 훨씬 많은 것을 표현할 수 있다
+* 하지만 더 많은 computation을 필요로 하게 된다
+  ![encoder 2](./img/transformer_encoder2.png)
+  이 방법으로 "it"과 관계있는 단어가 무엇인지 계산된다
+* Score를 Key vector의 차원으로 나누고, softmax 함수에 넣는다
+* softmax를 취한 값과 Value vector를 곱한다
+* 모든 Value vector x softmax의 결과 값들을 더해 해당 단어의 encoding된 vector를 최종적으로 얻는다
+  ![encoder 4](./img/transformer_encoder4.png)
+
+* 위의 과정은 다음의 사진과 같이 요약된다
+  ![encoder 5](./img/transformer_encoder5.png)
+  ![encoder 6](./img/transformer_encoder6.png)
+
+* 지금까지의 설명은 Single-headed attention이었다.
+* Multi-headed attention (MHA)은 한 단어에 대해 여러 attention이 위의 과정을 수행한다
+* 따라서 결과로 나오는 Z 벡터도 여러개가 된다
+  ![MHA](./img/transformer-MHA1.png)
+* 이번 layer의 output을 다음 단계의 layer로 보내야 하기 때문에 여러개의 Z 벡터들을 한개로 합쳐야 한다
+* 다음과 같이 행렬곱 연산을 통해 input보다 커져있는 output을 다시 input 크기로 줄인다
+  ![MHA2](./img/transformer-MHA2.png)
+* 지금까지의 encoding 과정을 모두 요약하면 다음과 같다
+  ![MHA](./img/transformer-encoder7.png)
+
+* 하지만 이렇게 구한 값들에는 순서에 대한 정보가 없다
+* 문장에서 단어의 순서를 바꿔도 나오는 결과 값은 동일하다
+* 문장에서 단어의 순서는 매우 중요하다
+* 그래서 positional encoding으로 특정 값을 더해서 단어의 순서를 만들어 준다
+  ![positional encoding](./img/transformer_positional_encoding.png)
+
+* encoder가 중첩된 구조이기 떄문에 위의 연산이 반복적으로 일어나게 된다
+* 그 이후에는 encoding 과정에서 생성한 key vector와 value vector를 decoder에 전달한다
+* encoding이 끝난 결과물로 나온 z vector도 decoder에 전달한다
+* decoder는 번역된 문장을 만들어 낸다
+
+* transformer나 attention 구조는 번역 이외에도 이미지 생성 등 다양한 분야에서 활용되고 있으므로 매우 중요하다
 
 ## LSTM 실습
 
