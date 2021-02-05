@@ -10,4 +10,4 @@
 
 * [Day 14 - RNN, Transformer](./Day14.md)
 
-* Day 15 - Generative models
+* [Day 15 - Generative models](./Day15.md)
