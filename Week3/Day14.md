@@ -97,6 +97,13 @@
   ![transformer](./img/transformer1.png)
   ![transformer](./img/transformer2.png)
 
+* 여기서 중요한 포인트는 3가지 이다
+  1. 어떻게 n개의 단어를 한번에 처리하는가?
+  2. encoder와 decoder간에 data를 어떻게 주고 받는가?
+  3. decoder가 어떻게 generation 하는가?
+
+* 이번 수업에서는 이 중 첫번째 topic과 attention 구조를 중심으로 다뤘다
+
 ### encoding
 * encoding 과정은 다음과 같이 이루어진다
 * transformer는 우선 각각의 단어를 embedding vector로 변환한다
