@@ -11,3 +11,13 @@
 * [Day 14 - RNN, Transformer](./Day14.md)
 
 * [Day 15 - Generative models](./Day15.md)
+
+* [MLP 실습](./MLP%20실습/MLP%20실습.md)
+
+* [Optimization 실습](./optimization%20실습/optimization%20실습.md)
+
+* [CNN 실습](./CNN%20실습/CNN%20실습.md)
+
+* LSTM 실습
+
+* Transformer 실습
