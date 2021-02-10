@@ -6,11 +6,11 @@
 
 ### 목차
 
-* [Week 1 - Python Basics For AI](./Week1/Week1.md)
+* [Week 1 - Python Basics For AI](./Week1/README.md)
 
-* [Week 2 - AI Math](./Week2/Week2.md)
+* [Week 2 - AI Math](./Week2/README.md)
 
-* [Week 3 - Deep Learning Basics](./Week3/Week3.md)
+* [Week 3 - Deep Learning Basics](./Week3/README.md)
 
 * Week 4
 
