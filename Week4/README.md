@@ -2,8 +2,7 @@
 
 ## 목차
 
-* [Day 16 - Introduction to NLP, Bag-of-Words
-, Word2Vec, GloVe](./Day16.md)
+* [Day 16 - Introduction to NLP, Bag-of-Words, Word2Vec, GloVe](./Day16.md)
 
 * Day 17 - Basics of RNN, LSTM, GRU
 
