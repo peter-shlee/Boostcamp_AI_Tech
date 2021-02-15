@@ -12,7 +12,7 @@
 
 * [Week 3 - Deep Learning Basics](./Week3/README.md)
 
-* Week 4
+* [Week 4 - Natural Language Processing (NLP)](./Week4/README.md)
 
 * Week 5
 
