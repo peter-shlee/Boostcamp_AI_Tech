@@ -84,7 +84,7 @@
       * hidden layer의 크기는 word embedding하는 좌표공간의 차원의 수 (hyperparameter)
         * 여기서는 hidden layer의 크기를 2로 한다  
   
-      이렇게 하면 다음과 같은 모양의 neural network가 된다
+      이렇게 하면 다음과 같은 모양의 neural network가 된다  
       ![word2vector neural network](./img/day16/word2vector1.png)  
 
       가중치 행렬  w1과 w2의 모양은 다음과 같이 결정된다  
