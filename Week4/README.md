@@ -1,4 +1,4 @@
-# Week 3 - Deep Learning Basics
+# Week 4 - Natural Language Processing (NLP)
 
 ## 목차
 
