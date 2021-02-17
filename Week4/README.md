@@ -6,7 +6,7 @@
 
 * [Day 17 - Basics of RNN, LSTM, GRU](./Day17.md)
 
-* Day 18 - Sequence to sequence with attention, Beam search and BLEU score
+* [Day 18 - Sequence to sequence with attention, Beam search and BLEU score](./Day18.md)
 
 * Day 19 - Transformer
 
