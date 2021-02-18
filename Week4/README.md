@@ -8,6 +8,6 @@
 
 * [Day 18 - Sequence to sequence with attention, Beam search and BLEU score](./Day18.md)
 
-* Day 19 - Transformer
+* [Day 19 - Transformer](./Day19.md)
 
 * Day 20 - Self-supervised Pre-training Models, Other Self-supervised Pre-training Models
