@@ -40,7 +40,7 @@
 
 * decoder의 매 time step마다 위 과정을 반복해, 각 time step에서 집중해야할 입력 단어를 결정하고, 연산함
 
-    ![attention](img/day18/attention4.png)
+    ![attention](img/day18/attention4.png)  
     위 그림에서 빨간 박스 부분을 attention model이라고 부름
 
 * 위에서는 유사도를 구할 때 단순히 내적을 이용했지만, 더 다양한 방법들이 있음
