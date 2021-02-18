@@ -1,5 +1,17 @@
 # Day 17 - Basics of RNN, LSTM, GRU
 
+- [Day 17 - Basics of RNN, LSTM, GRU](#day-17---basics-of-rnn-lstm-gru)
+  - [Basics of RNN](#basics-of-rnn)
+    - [RNN의 종류](#rnn의-종류)
+    - [Character-level Language Model](#character-level-language-model)
+    - [Vanishing/Exploding Gradient Problem in RNN](#vanishingexploding-gradient-problem-in-rnn)
+    - [Bi-Directional RNN](#bi-directional-rnn)
+  - [LSTM](#lstm)
+    - [Forget Gate](#forget-gate)
+    - [Input Gate와 Gate Gate](#input-gate와-gate-gate)
+    - [Output Gate](#output-gate)
+  - [GRU](#gru)
+
 ## Basics of RNN
 
 * 3주차에 배웠던 대로 RNN은 sequential data를 처리하기 위한 model임
@@ -77,6 +89,22 @@
 * 이 문제들 때문에 vanilla RNN은 잘 사용하지 않음
 * 이 문제를 해결한 LSTM과 GRU를 주로 사용함
 * LSTM과 GRU에서는 계속해서 변화하는 forget gate를 곱해주고, 새로운 정보는 더하는 방식으로 추가되기 때문에 gradient가 더 잘 전달됨
+
+### Bi-Directional RNN
+
+* 지금까지 봤던 RNN은 단방향으로만 추론, 학습하는 RNN model이었다
+* 하지만 이러한 모델의 경우에는 문제점이 있다
+* "나는 __ 를 먹었다" 라는 문장을 예로 들어보자
+* "나는" 이라는 단어만 입력된 상태에서 바로 뒤에 올 단어가 무엇인지 잘 유추해 낼 수 있을까?
+* 뒤에 있는 "먹었다" 라는 단어를 확인해야만 빈칸에 올 단어가 음식이 될 것이라는 사실을 유추할 수 있을 것이다
+* 단방향 RNN의 경우 단어를 유추할 때 뒤에 나오는 단어들에 대한 정보가 아직 없기 때문에, 제대로 유추를 할 수 없다
+* 이러한 문제를 해결하기 위해 역방향으로도 학습, 추론을 하는 Bi-directional RNN 사용한다
+
+    ![character level language model](./img/day17/bidirectionalRNN.png)
+
+* 역방향으로 학습을 진행하면서 나온 hidden state vector는 해당 단어 이후에 나오는 단어에 대한 정보를 담고있음
+* bidirectional rnn을 사용하면 순방향의 hidden state vector와 역방향의 hidden state vector가 나오게 됨. 이 두 vector를 concat하여 output layer에 집어넣어 결과 도출에 사용하게 됨. -> bidirectional rnn 사용 시 hidden state vector의 크기가 2배가 되는 이유
+* 이 방법으로 위에서 봤던 문제를 해결할 수 있지만, 이때 역시 멀리 있는 단어에 대한 정보는 손실되거나 왜곡되기 때문에 여전히 문제는 남아있음
 
 ## LSTM
 
