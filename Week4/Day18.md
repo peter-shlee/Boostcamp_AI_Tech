@@ -2,7 +2,7 @@
 
 ## Seq2Seq Model
 
-* 기본적인 seq2seq model은 RNN의 many to many 형태 model임
+* 기본적인 seq2seq model은 many to many 형태 의 RNN model임
 * 입력을 처리하는 encoder와 출력을 생성하는 decoder로 구성됨
 * encoder의 마지막 time step의 hidden state vector가 decoder의 첫번째 time step으로 전달됨
 * encoder와 decoder는 별개의 RNN model을 사용함 -> parameter를 공유하지 않음
