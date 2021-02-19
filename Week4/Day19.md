@@ -1,11 +1,13 @@
 # Day 19 - Transformer
 
+## Self Attention
+
 * RNN은 멀리있는 time step의 정보가 유실되는 구조적 문제점이 있음
 * 또한 RNN은 이전의 입력에 대한 정보만 이용할 수 있고, 이후에 입력될 단어들의 정보는 고려할 수 없음
 * 이 문제를 해결하기 위해 bi-directional rnn을 사용하지만 먼 time step의 정보가 손실되는 문제는 여전히 남아있음 (bidirectional rnn에 대한 내용은 day17에 정리해 두었음)
 * Transformer는 동시에 모든 단어를 고려하는 구조를 통해 이러한 문제들을 근본적으로 해결함
 
-    ![transformer](./img/day19/transformer1.png)
+![transformer](./img/day19/transformer1.png)
 
 * 위 그림의 오른쪽 부분
   * Transformer는 Query, Key, Value vector를 이용해 단어들간의 가중 평균을 구함
@@ -29,3 +31,23 @@
   * 각 단어에 대한 연산을 수행할 때 달라지는 것은 이 Query vector밖에 없음
 
 * 위 과정을 보면 encoder와 decoder 두 RNN에서 나온 값들을 이용해 단어들의 가중 평균을 구하는 seq2seq with attention model과 달리 embedding vector만을 가지고 가중 평균을 구하고 있음. 이것이 self attention 구조라고 부르는 이유임.
+
+![transformer](./img/day19/transformer2.png)
+
+* self attention module의 입력은 Q, K, V vector
+* 출력은 V vector들의 가중 평균 
+* 가중치는 Q, K vector를 내적해서 구함
+* Q와 K vector를 내적해야 하기 때문에, 두 vector의 차원이 동일해야 함
+* 출력의 차원은 V vector의 차원임
+* Q, K vector의 차원과 V vector의 차원은 서로 달라도 되지만, 보통 편의상 동일하게 함
+* 실제로 계산할 때는 각각의 단어 별로 따로따로 계산하는 것이 아니라 행렬곱을 이용해 한번에 계산함
+  
+// TODO: 행렬곱 그림
+
+![transformer](./img/day19/transformer3.png)
+
+* Q, K vector를 내적한 후에 $\sqrt{d_k}$(Q, K 벡터의 차원의 제곱근)로 나눠준다
+* $\sqrt{d_k}$로 나눠주는 이유는 다음과 같다
+  * // TODO 
+
+## Multi-Head Attention
