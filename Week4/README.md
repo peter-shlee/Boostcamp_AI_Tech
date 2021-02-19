@@ -10,4 +10,4 @@
 
 * [Day 19 - Transformer](./Day19.md)
 
-* Day 20 - Self-supervised Pre-training Models, Other Self-supervised Pre-training Models
+* [Day 20 - Self-supervised Pre-training Models, Other Self-supervised Pre-training Models](./Day20.md)
