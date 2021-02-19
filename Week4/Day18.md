@@ -113,4 +113,41 @@
 
 ## BLEU score
 
-// TODO
+* 몇가지 관점에서 생성된 문장을 평가할 수 있음
+  * precision - 정밀도, 예측한 문장에 reference 문장에 있는 단어들이 얼마나 존재하는가
+  * recall - 재현율, reference 문장에 있는 단어가 reference 문장에 얼마나 있는가 (얼마나 빠짐없이 예측(recall)했는가)
+  * F-measure - precision과 recall의 조화 평균
+    * 평균의 종류에는 산술, 기하, 조화 평균이 있음
+    * 크기는 조화 <= 기하 <= 산술 평균 순서
+    * 조화 평균을 사용했다는 뜻은 작은 값에 더 가중치를 두고 평균을 구했다는 뜻
+
+![BLEU Score](img/day18/bleuScore.png)
+
+* 위 방법으로 점수를 매기면 문제가 있음
+  
+![BLEU Score](img/day18/bleuScore2.png)
+
+* 위의 상황에서 model 2에서 예측한 문장은 문법적으로 말이 안되는 문장임
+* 하지만 위의 방법으로 점수를 매기면 만점이 나옴
+* 단순히 단어의 등장 여부만 따졌기 때문임
+* 이런 문제를 해결하기 위해 나온것이 BLEU Score임
+
+### BLEU Score
+
+* BLEU Score는 연속된 단어(N-gram)가 얼마나 겹치는지도 확인함
+  * unigrams - 단어 하나
+  * bigrams - 연속된 두개의 단어
+  * trigrams - 연속된 세개의 단어
+  * 4-grams - 연속된 네개의 단어
+
+* 1개의 단어부터 연속된 4개의 단어까지 precision을 고려함
+* recall은 고려하지 않고 precision만 고려함
+  * 실제로는 재현율 보다는 번역 결과만을 보고 판단하는게 더 중요하기 때문 (번역 결과가 원본 문장을 잘 표현하기만 하면 됨. 뜻이 잘 통한다면 원본 문장의 단어가 얼마나 recall 되었는지는 중요하지 않음)
+* N-gram의 기하평균을 사용
+* min()을 사용한 이유는 reference보다 짧은 문장을 생성했을 경우에 값이 1보다 커질 수 있으므로 이를 보정해주기 위함
+
+![BLEU Score](./img/day18/bleuScore3.png)
+
+* BLEU Score를 사용하면 다음과 같이 점수가 매겨짐
+  
+![BLEU Score](./img/day18/bleuScore4.png)
