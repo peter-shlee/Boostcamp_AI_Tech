@@ -1,4 +1,22 @@
-# Day 20 - Self-supervised Pre-training Models, Other Self-supervised Pre-training Models
+# Day 20 - Self-supervised Pre-training Models, Advanced Self-supervised Pre-training Models
+
+- [Day 20 - Self-supervised Pre-training Models, Advanced Self-supervised Pre-training Models](#day-20---self-supervised-pre-training-models-advanced-self-supervised-pre-training-models)
+  - [GPT-1](#gpt-1)
+  - [BERT](#bert)
+    - [Masked Language Model (MLM)](#masked-language-model-mlm)
+    - [Next Sentence Prediction (NSP)](#next-sentence-prediction-nsp)
+    - [그 외 BERT의 특징](#그-외-bert의-특징)
+  - [GPT-2](#gpt-2)
+  - [GPT-3](#gpt-3)
+  - [ALBERT](#albert)
+    - [기존 BERT model의 문제](#기존-bert-model의-문제)
+    - [해결책](#해결책)
+      - [Factorized Embedding Parameterization](#factorized-embedding-parameterization)
+      - [Cross-layer Parameter Sharing](#cross-layer-parameter-sharing)
+      - [(For Performance) Sentence Order Prediction](#for-performance-sentence-order-prediction)
+  - [ELECTRA](#electra)
+  - [Light-weight Models](#light-weight-models)
+  - [Fusing Knowledge Graph into Language Model](#fusing-knowledge-graph-into-language-model)
 
 * Transformer model and its self-attention block has become a general-purpose sequence (or set) encoder and decoder in recent NLP applications as well as in other areas.
 * Training deeply stacked Transformer models via a self-supervised learning framework has significantly advanced various NLP tasks through transfer learning, e.g., BERT, GPT-3, XLNet, ALBERT, RoBERTa, Reformer, T5, ELECTRA...
@@ -76,8 +94,95 @@
 
 ## GPT-2
 
+* GPT-1과 구조는 비슷함. 레이어를 많이 늘림
+* Trained on 40GB of text - 매우 많은 data를 사용했음. 특히 quality가 높은 데이터를 주로 사용했음
+* Byte pair encoding (BPE) 를 사용함 - 자세한 내용은 [여기(위키독스)](https://wikidocs.net/22592)와 Day 19 과제를 참고
+
 ## GPT-3
+
+* 96 Attention layers, Batch size of 3.2M
+* 이전 버전들에 비해 모델 구조의 변화보다는 self-attention block을 많이 쌓아 parameter의 개수를 크게 증가시켰음
 
 ## ALBERT
 
+* A Lite BERT for Self-supervised Learning of Language Representations
+* 경량화된 BERT model
+* 
+### 기존 BERT model의 문제
+
+* Memory Limitation
+* Training Speed
+* 
+### 해결책
+
+#### Factorized Embedding Parameterization
+
+![Factorized Embedding Parameterization](./img/day20/albert2.png)
+* 위 그림애서 V, H, E는 다음을 의미함
+  * V: vocabulary size
+  * H: Hidden-state dimension
+  * E: Word embedding dimension
+* 위 그림과 같이 word embedding vector의 차원을 줄여주면 parameter의 수를 줄일 수 있음
+* word embedding vector의 차원을 다시 늘려주는 layer를 사용하면 더 적은 parameter로 동일한 효과를 낼 수 있음
+  
+#### Cross-layer Parameter Sharing
+
+![cross layer parameter sharing](./img/day20/albert.png)
+* 원래 transformer model은 self attention block마다 각각의 가중치 행렬을 갖고 있음
+* 위 그림에서 빨간 박스에 들어있는 부분이 학습해야 할 parameter들임
+* encoder layer가 많아질수록 더 많은 parameter들이 필요해짐
+* ALBERT에선 self attention block의 가중치 행렬들을 서로 공유함
+* 이러한 방법을 사용하면 parameter 수가 많이 줄어들어 메모리 사용량과 학습 속도가 빨라짐
+* cross-layer parameter sharing의 종류 3가지
+  * shared-FFN: Only sharing feed-forward network parameters across layers
+  * shared-attention: Only sharing attention parameters across layers
+  * all-shared: Both of them  
+  
+  ![cross layer parameter sharing](./img/day20/albert3.png)
+  * all-shared 방식을 사용해 모든 parameter를 공유해도 성능이 크게 떨어지지 않음
+  
+#### (For Performance) Sentence Order Prediction
+
+* BERT에서는 Next Sentence Prediction을 이용해 model을 학습시켰음
+* 하지만 NSP는 너무 쉬운 task여서 학습에 별로 도움이 되지 않았음
+* ALBERT에서는 이 문제를 해결하기 위해 Next Sentence Prediction 대신 Sentence Order Prediction를 사용함
+* Sentence Order Prediction는 두 문장을 입력으로 주고, 문장이 나열된 순서가 올바른 순서인지 아닌지 맞추는 task임
+* Next Sentence Prediction의 오답 (negative sample)은 서로 다른 문서에서 뽑아온 문장의 쌍인 경우가 많았음
+* 이 경우 다른 문서에서 가져왔기 때문에 답을 찾기가 쉬웠음
+* Sentence Order Prediction에서는 같은 문서 내의 두 문장을 이용해 순서를 맞추는 문제이기 떄문에 Next Sentence Prediction보다 더 어려운 논리적 판단을 요구함
+
 ## ELECTRA
+
+* Efficiently Learning an Encoder that Classifies Token Replacements Accurately
+
+![ELECTRA](./img/day20/electra.png)
+
+* BERT, GPT-1과는 다른 형태로 pre-training을 하는 model
+* Generator는 BERT와 흡사함
+* Generator는 mask된 단어를 복원해주는 MLM model임
+* Discriminator는 transformer model이고, binary classification을 수행함
+* Discriminator는 Generator가 생성한 문장을 입력으로 받아 어색한 단어를 찾아서 어떤 단어가 Generator에 의해 생성, 대체된 단어인지를 예측하는 model
+* Generator와 Discriminator는 서로 적대적인 관계임 (Generative Adversarial Network - GAN)
+* 이렇게 학습된 Generator와 Discriminator 둘 다 pre-trained model로 사용될 수 있음
+* ELECTRA에서는 Discriminator를 pre-trained model로 사용함
+* BERT와 ELECTRA를 비교하면 ELECTRA가 동일한 계산량에서 더 좋은 결과를 보여줌
+
+## Light-weight Models
+
+* 경량화 모델
+* 성능은 유지하고, 계산속도는 빠르게, 크기는 작게 만듦
+* DistillBERT (NeurIPS 2019 Workshop)
+  * Teacher model(경량화 안된 model)의 결과물의 확률분포를 모사하도록 student model(경량화 모델)을 학습시킴
+* TinyBERT (Findings of EMNLP 2020)
+  * parameter와 중간 결과물 까지도 Teacher model을 닮도록 student model을 학습시킴
+
+## Fusing Knowledge Graph into Language Model
+
+* 외부적인 정보를 결합시킨 모델
+* BERT는 주어진 입력의 문맥을 파악하고, 단어간의 관계를 잘 파악함
+* 하지만 주어진 문장 밖의 추가적 정보가 필요한 경우에는 그 정보를 잘 활용하지 못함
+  * ex) "꽃을 심기 위해 땅을 팠다", "건물을 짓기 위해 땅을 팠다" 라는 문장을 주고, 질문으로 "무엇으로 땅을 팠을까?" 라고 질문을 했다.  
+  사람이라면 상식으로 삽/포크레인을 이용했을 것임을 유추해낸다.  
+  BERT는 문장 밖의 정보(상식)를 활용하지 못하기 때문에 제대로 된 답을 하지 못한다.
+* 이러한 외부 정보는 knowledge graph의 형태로 표현된다
+* knowledge graph와 BERT를 결합해 외부지식을 잘 활용하도록 모델링 해야 한다.
