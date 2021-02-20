@@ -53,8 +53,6 @@
 * 출력의 차원은 V vector의 차원임
 * Q, K vector의 차원과 V vector의 차원은 서로 달라도 되지만, 보통 편의상 동일하게 함
 * 실제로 계산할 때는 각각의 단어 별로 따로따로 계산하는 것이 아니라 행렬곱을 이용해 한번에 계산함
-  
-// TODO: 행렬곱 그림
 
 ![transformer](./img/day19/transformer3.png)
 
