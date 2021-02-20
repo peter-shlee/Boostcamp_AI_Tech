@@ -164,7 +164,7 @@
 
 * decoder는 encoder에서 결과물로 나온 encoding vector를 이용해 새로운 문장을 생성한다
 
-![transformer decoder](https://jalammar.github.io/images/t/transformer_decoding_2.gif)  
+![transformer decoder](./img/day19/transformer_decoding_2.gif)  
 출처: http://jalammar.github.io/illustrated-transformer/
 
 * decoder는 seq2seq와 유사하게 time step 별로 입력된 단어들 다음에 올 단어를 예측하고, 이전 time step들의 output을 다음 time step의 input으로 넣어 또 다시 다음 단어를 예측하는 과정을 반복한다.
