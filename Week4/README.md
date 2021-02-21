@@ -11,3 +11,5 @@
 * [Day 19 - Transformer](./Day19.md)
 
 * [Day 20 - Self-supervised Pre-training Models, Advanced Self-supervised Pre-training Models](./Day20.md)
+
+* [실습](./실습/README.md)
