@@ -56,11 +56,11 @@
 
     ![attention](img/day18/attention3.png)
 
-    * dot은 위에서 봤던 내적을 하는 방법. 그냥 내적을 이용하면 encoder의 hidden state vector와 decoder의 hidden state vector의 같은 위치의 성분끼리의 유사도만 단순하게 확인함
-    * general은 내적을 할 때 중간에 weight 행렬을 추가해서 계산하는 방법임. weight을 사용하여 encoder와 decoder의 hidden state vector 사이의 유사도를 계산함. 이렇게 하면 특정 성분에 가중치를 추가해 줄 수 있게되고, 같은 위치의 성분 뿐만 아니라 다른 위치의 성분과의 유사도도 연산할 수 있게 됨. 또한 이 weight 역시 학습이 가능함. 따라서 그냥 내적을 사용했을 때 보다 더 높은 표현력을 갖게 됨. (그냥 내적을 하는 경우엔 weight 행렬이 항등행렬이라고 생각할 수 있음)  
+    * **dot**: 위에서 봤던 내적을 하는 방법. 그냥 내적을 이용하면 encoder의 hidden state vector와 decoder의 hidden state vector의 같은 위치의 성분끼리의 유사도만 단순하게 확인함
+    * **general**: 내적을 할 때 중간에 weight 행렬을 추가해서 계산하는 방법임. weight을 사용하여 encoder와 decoder의 hidden state vector 사이의 유사도를 계산함. 이렇게 하면 특정 성분에 가중치를 추가해 줄 수 있게되고, 같은 위치의 성분 뿐만 아니라 다른 위치의 성분과의 유사도도 연산할 수 있게 됨. 또한 이 weight 역시 학습이 가능함. 따라서 그냥 내적을 사용했을 때 보다 더 높은 표현력을 갖게 됨. (그냥 내적을 하는 경우엔 weight 행렬이 항등행렬이라고 생각할 수 있음)  
     이 때 다른 위치의 성분끼리도 유사도를 확인하는 것은 hidden state vector에서 서로 다른 위치에 있는 성분이라도 비슷한 유형의 정보를 저장하고 있을 수 있기 때문에 이것까지 모두 고려해주는 것이라고 생각할 수 있음.  
-    // TODO: 행렬 이용 내적 설명 추가하기
-    * concat은 또 다른 neural network(MLP)를 사용해 유사도를 계산하는 방법임. encoder의 hidden state vector와 decoder의 hidden state vector를 concatenation해서 유사도 계산에 사용하는 MLP에 입력으로 넣기 떄문에 concat이라 부름. 이 방법은 위의 두 방법과는 다르게 내적을 이용하지 않고 유사도 값을 구함. 하지만 별도의 neural network를 이용하여 유사도를 구하는 과정을 학습시킬 수 있다는 것이 general과 유사함.
+    ![general](./img/day18/general.png)
+    * **concat**: 또 다른 neural network(MLP)를 사용해 유사도를 계산하는 방법임. encoder의 hidden state vector와 decoder의 hidden state vector를 concatenation해서 유사도 계산에 사용하는 MLP에 입력으로 넣기 떄문에 concat이라 부름. 이 방법은 위의 두 방법과는 다르게 내적을 이용하지 않고 유사도 값을 구함. 하지만 별도의 neural network를 이용하여 유사도를 구하는 과정을 학습시킬 수 있다는 것이 general과 유사함.
 * general과 concat은 attention model을 학습 가능하게 만든다는 점이 공통점임
 
 ### Attention의 장점
