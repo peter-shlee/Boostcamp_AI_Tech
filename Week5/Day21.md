@@ -24,6 +24,7 @@
       - [군집](#군집)
       - [지역적 군집 계수(local clustering coefficient)](#지역적-군집-계수local-clustering-coefficient)
       - [전역 군집 계수(global clustering coefficient)](#전역-군집-계수global-clustering-coefficient)
+    - [실제 그래프 vs 랜덤 그래프](#실제-그래프-vs-랜덤-그래프-1)
     - [실습 - Networkx를 이용한 군집 계수 및 지름 분석](#실습---networkx를-이용한-군집-계수-및-지름-분석)
 
 ## 그래프란 무엇이고 왜 중요할까?, 그래프 필수 기초 개념
@@ -81,7 +82,7 @@
   * **그래프의 지름은 정점 간 거리의 최댓값**
   * 아래 예시 그래프의 지름은 4
   
-  ![diameter](./img/diameter.png)
+  ![diameter](./img/day21/diameter.png)
 
 #### 그래프의 유형 및 분류
 
@@ -120,7 +121,7 @@
 
 * 실제 그래프(real graph)란 다양한 복잡계로부터 얻어진 그래프를 의미
 
-![real graph](./img/realGraph.png)
+![real graph](./img/day21/realGraph.png)
 
 * 랜덤 그래프(random graph)란 확률적 과정을 통해 생성한 그래프를 의미
 * 수업에서는 에르되스-레니 랜덤 그래프 모델을 사용
@@ -130,7 +131,7 @@
   * 정점 간의 연결은 서로 독립적
   * ex) G(3, 0.3)에 의해 생성될 수 있는 그래프와 각각의 확률은 다음과 같다
 
-![Erdős-Rényi Random Graph](./img/randomGraph.png)
+![Erdős-Rényi Random Graph](./img/day21/randomGraph.png)
 
 ### 작은 세상 효과 (small world effect)
 
@@ -142,7 +143,7 @@
 * 하지만 모든 그래프에 작은 세상 효과가 존재하는 것은 아님
   * 체인, 사이클, 격자 그래프에서는 작은 세상 효과가 존재하지 않음  
   
-  ![체인, 사이클, 격자 그래프](./img/smallWorldEffect.png)
+  ![체인, 사이클, 격자 그래프](./img/day21/smallWorldEffect.png)
 
 ### 연결성의 두터운 꼬리 분포
 
@@ -152,7 +153,7 @@
   * 정점 v의 연결성 = 해당 정점의 이웃들의 수 = 해당 정점에 연결된 간선의 수
   * 정점 v의 연결성은 $d(v)$, $d_v$ 혹은 $|N(v)|$로 적음
 
-  ![연결성](./img/degree.png)
+  ![연결성](./img/day21/degree.png)
 
 * 정점의 나가는 연결성(out degree)은 그 정점에서 나가는 간선의 수를 의미
   * 정점 v의 나가는 연결성은 $d_{out}(v)$ 혹은 $|N_{out}(v)|$로 표시
@@ -160,7 +161,7 @@
 * 정점의 들어오는 연결성(in degree)은 그 정점으로 들어오는 간선의 수를 의미
   * 정점 v의 들어오는 연결성은 $d_{in}(v)$ 혹은 $|N_{in}(v)|$로 표시
 
-  ![들어오는 연결성, 나가는 연결성](./img/inOutDegree.png)
+  ![들어오는 연결성, 나가는 연결성](./img/day21/inOutDegree.png)
 
 #### 두터운 꼬리 분포
 
@@ -168,15 +169,15 @@
   * 연결성이 매우 높은 허브(hub) 정점이 존재함을 의미
   * 실제 그래프의 연결성 분포는 다음과 같이 생겼다
 
-  ![실제 그래프의 연결성 분포](./img/heavyTail.png)
+  ![실제 그래프의 연결성 분포](./img/day21/heavyTail.png)
 
 * 랜덤 그래프의 연결성 분포는 정규 분포와 유사함
   * 연결성이 매우 높은 허브 정점이 존재할 가능성은 매우 희박함
   * 랜덤 그래프의 연결성 분포는 다음과 같이 생겼다
 
-  ![랜덤 그래프의 연결성 분포](./img/randomGraphDegree.png)
+  ![랜덤 그래프의 연결성 분포](./img/day21/randomGraphDegree.png)
 
-  ![연결성](./img/realRandomDegree.png)
+  ![연결성](./img/day21/realRandomDegree.png)
 
 ### 연결 요소와 거대 연결 요소
 
@@ -186,8 +187,8 @@
    1. 연결 요소에 속하는 정점들은 경로로 연결될 수 있다
    2. (1)의 조건을 만족하면서 정점을 추가할 수 없다
 
-  ![연결 요소 1](./img/connectedComponent1.png)
-  ![연결 요소 2](./img/connectedComponent2.png)
+  ![연결 요소 1](./img/day21/connectedComponent1.png)
+  ![연결 요소 2](./img/day21/connectedComponent2.png)
 
 #### 거대 연결 요소
 
@@ -206,7 +207,7 @@
   2. 집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재한다
 * 군집은 수학적으로 엄밀한 정의는 아니다
 
-  ![군집](./img/community.png)
+  ![군집](./img/day21/community.png)
 
 #### 지역적 군집 계수(local clustering coefficient)
 
@@ -214,7 +215,7 @@
 * 정점 i의 지역적 군집 계수는 정점 i의 이웃 쌍 중 간선으로 직접 연결된 이웃 쌍의 비율을 의미함
 * 정점 i의 군집 계수는 $C_i$로 표현
 
-  ![지역적 군집 계수 예시](./img/localClusteringCoefficient1.png)
+  ![지역적 군집 계수 예시](./img/day21/localClusteringCoefficient1.png)
 
 * 위의 그림에서 정점 1의 이웃은 {2, 3, 4, 5} 총 4개
 * 이 예제에서 이웃 쌍의 개수는 $_{4} \mathrm{C} _{2}$ = 6
@@ -225,7 +226,7 @@
   * (2, 4), (2, 3), (3, 5) -> 3개
 * 따라서 정점 1의 지역적 군집 계수는 $3\over{6}$ = 0.5
 
-  ![지역적 군집 계수 예시 2](./img/localClusteringCoefficient2.png)
+  ![지역적 군집 계수 예시 2](./img/day21/localClusteringCoefficient2.png)
 
 * 이웃 쌍 사이에 간선이 많아질수록 군집 계수가 늘어나고, 줄어들수록 군집 계수가 줄어듦
 * 연결성이 0인 정점에서는 (연결된 간선이 없는 정점) 지역적 군집 계수가 정의되지 않음
@@ -244,6 +245,18 @@
   * 랜덤 그래프 $G(n, p)에서의 군집 계수는 p이다
   * 랜덤 그래프에서 간선의 연결은 서로 독립적이기 떄문
   * 공통 이웃의 존재 여부가 간선 연결 확률에 영향을 미치지 않음
+
+### 실제 그래프 vs 랜덤 그래프
+
+![실제 그래프 vs 랜덤 그래프](./img/day21/realGraphvsRandomGraph.png)
+
+* 실제 그래프에서만 나타나는 특성
+  * 연결성의 두터운 꼬리 분포
+  * 군집 구조
+
+* 랜덤 그래프와 실제 그래프에서 모두 나타나는 특성
+  * 작은 세상 효과
+  * 거대 연결 요소
 
 ### 실습 - Networkx를 이용한 군집 계수 및 지름 분석
 
