@@ -14,7 +14,7 @@
 
 * [Week 4 - Natural Language Processing (NLP)](./Week4/README.md)
 
-* Week 5
+* [Week 5 - Machine Learning with Graphs](./Week5/README.md)
 
 * Week 6
 
