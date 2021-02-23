@@ -120,7 +120,7 @@
 
 ### 실습 - 위키피디아 검색 
 
-// TODO
+[Lab 3 : PageRank](./실습/실습3_solution.md)
 
 ## 그래프를 바이럴 마케팅에 어떻게 활용할까?
 
@@ -226,4 +226,4 @@
 
 ### 실습 - 전파 모형 시뮬레이터 구현
 
-// TODO
+[Lab 4 : Influence Model](./실습/실습4_solution/실습4_solution.md)
