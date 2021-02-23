@@ -20,3 +20,9 @@
   * [Lab 1-1 : Graph Basic](./실습/실습1_1/실습1_1.md)
   * [Lab 1-2 : Graph Representation](./실습/실습1_2.md)
   * [Lab 2 : Graph Property](실습/실습2/실습2_solution.md)
+* Day 22
+  * [Lab 3 : PageRank](./실습/실습3_solution.md)
+  * [Lab 4 : Influence Model](./실습/실습4_solution/실습4_solution.md)
+
+* 과제
+  * [숙제 1 : 그래프 기초, 페이지랭크](./실습/hw1.md)
