@@ -150,7 +150,7 @@
 * 이 과정을 반복하여 최종적으로 하나의 embedding vector가 남을 때까지 반복
 * 최종적으로 나온 하나의 embedding vector가 그래프 embedding이 된다  
 
-        ![그래프 신경망](./img/day25/gnn18.png)
+  ![그래프 신경망](./img/day25/gnn18.png)
 
 ### 지나친 획일화 문제 (Over-smoothing)
 
