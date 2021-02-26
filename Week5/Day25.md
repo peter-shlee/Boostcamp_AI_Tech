@@ -49,10 +49,10 @@
 
 * 위 수식의 $W_k$와 $B_k$가 그래프 신경망의 parameter이다
 * 학습을 위해 loss function을 정한다
-* 변환식 정점 임베딩에서 처럼 그래프에서의 정점간 거리를 보존하는 것을 목표로 할 수 있다
+* 변환식 정점 임베딩에서 처럼 그래프에서의 정점간 거리를 보존하는 것을 목표로 할 수 있다 (비지도 학습)
 * 이 때 인접성을 기반으로 유사도를 정의한다면 손실 함수는 다음과 같다  
         ![그래프 신경망](./img/day25/gnn6.png)
-* 후속 과제(downstream task)의 loss function을 이용한 end to end 학습도 가능하다
+* 후속 과제(downstream task)의 loss function을 이용한 end to end 학습도 가능하다 (지도 학습)
 * 정점 분류가 최종 목표인 경우를 예로 들면 다음과 같다
 * 그래프 신경망을 이용하여 정점의 embedding을 구한 뒤, 정점의 embedding을 분류기(classifier)의 입력으로 넣고, 분류된 결과를 얻어야 한다
 * 이 경우 classifier의 손실함수인 교차 엔트로피(cross entropy)를 전체 프로세스의 손실함수로 사용하여 end to end 학습을 할 수 있다
@@ -103,3 +103,86 @@
 // TODO
 
 ## 그래프 신경망이란 무엇일까? (심화)
+
+### 그래프 신경망의 어텐션
+
+#### 기본 그래프 신경망의 한계
+
+* 기본 그래프 신경망에서는 이웃들의 정보를 동일한 가중치로 평균을 낸다
+* 그래프 합성곱 신경망에서 역시 단순히 연결성을 고려한 가중치로 평균을 낸다
+
+#### 그래프 어텐션 신경망
+
+* 실제 그래프에서는 이웃 별로 미치는 영향이 다를 수 있다
+* 이러한 관계를 고려하면 이웃 별로 서로 다른 가중치를 적용하여 계산해야 한다
+* 이 가중치를 학습하기 위해서 self-attention이 사용된다  
+        ![그래프 신경망](./img/day25/gnn13.png)
+* 각 layer에서 정점 i로부터 이웃 j로의 가중치 $a_{ij}$는 다음의 과정을 거쳐 계산된다
+  * t번째 layer의 정점 i의 embedding $h^t_i$에 matrix W를 곱해 새로운 embedding을 얻는다
+  * 이웃 정점 j의 embedding $h^{t-1}_j$에도 위 방법을 사용해 새로운 embedding을 얻는다  
+        ![그래프 신경망](./img/day25/gnn14.png)
+  * 정점 i와 정점 j의 새로운 embedding을 연결한 후(concat) 어텐션 계수 a를 내적한다
+    * 어텐션 계수 a는 벡터임
+    * 어텐션 계수 a는 모든 정점이 공유하는 parameter임  
+  
+    ![그래프 신경망](./img/day25/gnn15.png)
+  * 위에서 나온 결과에 softmax를 적용한다  
+        ![그래프 신경망](./img/day25/gnn16.png)
+  * 위 과정을 동시에 여러번 수행(multi-head attention)하여, 결과를 concatenation하여 사용한다  
+        ![그래프 신경망](./img/day25/gnn17.png)
+
+### 그래프 표현 학습과 그래프 풀링
+
+#### 그래프 표현 학습 (Graph Embedding)
+
+* 그래프 표현 학습 혹은 graph embedding이란 **그래프 전체**를 vector의 형태로 표현하는 것
+* 개별 정점을 vector의 형태로 표현하는 정점 표현과는 다름
+* 그래프 embedding은 그래프 분류 등에 활용됨
+* 그래프 형태로 표현된 화합물의 분자 구조로부터 특성을 예측하는 것이 한가지 예시
+
+#### 그래프 풀링 (Graph Pooling)
+
+* 그래프 풀링이란 그래프 내의 정점들의 embedding들로 부터 그래프 embedding을 얻는 과정이다
+* 평균 등을 이용하는 단순한 방법보다 그래프의 구조를 고려한 방법을 사용할 경우 더 높은 성능을 얻을 수 있다
+* 미분 가능한 풀링(Differentiable Pooling, DiffPool)은 군집 구조를 활용하여 임베딩을 계층적으로 집계함
+* 군집별로 정점 embedding을 합산 하여 군집 별로 하나의 embedding으로 표현
+* 위 과정을 통해 생성된 군집을 표현하는 embedding들을 또 다시 group지어 묶음
+* 이 과정을 반복하여 최종적으로 하나의 embedding vector가 남을 때까지 반복
+* 최종적으로 나온 하나의 embedding vector가 그래프 embedding이 된다  
+
+        ![그래프 신경망](./img/day25/gnn18.png)
+
+### 지나친 획일화 문제 (Over-smoothing)
+
+* 지나친 획일화 (over smoothing) 문제란 그래프 신경망의 층의 수가 증가하면서 정점의 embedding이 서로 유사해지는 현상을 의미한다
+* 이러한 문제는 작은 세상 효과와 관련이 있다
+* 정점간 거리가 가깝기 때문에 layer가 깊어지면 그래프의 전반을 집계하는 효과가 발생한다
+* 때문에 정점의 embedding들이 서로 유사해지게 된다 (모두 그래프의 전반을 집계했기 때문)  
+        ![그래프 신경망](./img/day25/gnn19.png)
+
+* 지나친 획일화 문제의 결과로 그래프 신경망의 layer 수를 늘렸을 때, 후속 과제에서의 정확도가 감소하는 현상이 발생한다
+* 이것은 gradient vanishing과는 별개의 문제이므로 residual connection 등의 방법으로는 해결되지 않는다  
+        ![그래프 신경망](./img/day25/gnn20.png)
+
+* 획일화 문제에 대한 대응 방법
+  * JK 네트워크(Jumping Knowledge Network)
+    * residual connection에 마지막 층의 embedding 뿐 아니라, 모든 층의 embedding을 함께 사용함  
+  
+    ![그래프 신경망](./img/day25/gnn21.png)
+  * APPNP
+    * 0번째 layer에서만 신경망을 사용. 0번째 layer 이외의 layer에서는 신경망 없이 단순화한 집계 함수를 사용함  
+  
+    ![그래프 신경망](./img/day25/gnn22.png)
+
+### 그래프 데이터의 증강 (Data Augmentation)
+
+* 그래프에 누락되거나 부정확한 간선이 있을 수 있다
+* 이러한 noise가 있어도 잘 학습될 수 있도록 data augmentation을 통해 그래프를 보완한다
+* 대표적인 방법으로는 유사도가 높은 정점 간의 간선을 추가하는 방법이 있다
+* 유사도가 높은 정점 사이의 간선을 추가하면 유사도가 더욱 증가한다
+* 유사도가 증가하면 누락되거나 부정확한 간선에 의한 영향을 줄일 수 있다  
+        ![그래프 신경망](./img/day25/gnn23.png)
+
+### 실습 - GraphSAGE의 집계 함수 구현
+
+// TODO
