@@ -1,4 +1,4 @@
-# Week 5 - Machine Learning with Graphs
+# Week 5 - Machine Learning with Graphs (KAIST 신기정 교수님)
 
 ## 목차
 

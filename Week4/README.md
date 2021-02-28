@@ -1,4 +1,4 @@
-# Week 4 - Natural Language Processing (NLP)
+# Week 4 - Natural Language Processing (NLP) (KAIST 주재걸 교수님)
 
 ## 목차
 

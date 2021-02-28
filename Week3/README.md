@@ -1,4 +1,4 @@
-# Week 3 - Deep Learning Basics
+# Week 3 - Deep Learning Basics (고려대 최성준 교수님)
 
 ## 목차
 

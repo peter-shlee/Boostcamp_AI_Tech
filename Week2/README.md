@@ -1,4 +1,4 @@
-# Week 2 - AI Math
+# Week 2 - AI Math (UNIST 임성빈 교수님)
 
 ## 목차
 

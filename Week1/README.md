@@ -1,4 +1,4 @@
-# Week 1 - Python Basics For AI
+# Week 1 - Python Basics For AI (가천대 최성철 교수님)
 
 ## 목차
 
