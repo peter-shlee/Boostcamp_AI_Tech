@@ -16,7 +16,7 @@
 
 * [Week 5 - Machine Learning with Graphs (KAIST 신기정 교수님)](./Week5/README.md)
 
-* Week 6 - 특별 강의
+* [Week 6 - 특별 강의](./Week6/README.md)
 
 * Week 7
 
