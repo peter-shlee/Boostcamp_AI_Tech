@@ -56,7 +56,16 @@
 
 * 최대 가능도 추정법은 쿨백-라이블러 발산을 최소화 하는 것과 같음
 
-다음은 cross entropy에 대해 정말 잘 정리된 글이다. 참고해보자
+다음은 cross entropy에 대해 정말 잘 정리된 글들이다. 참고해보자  
 https://hyunw.kim/blog/2017/10/14/Entropy.html  
 https://hyunw.kim/blog/2017/10/26/Cross_Entropy.html  
 https://hyunw.kim/blog/2017/10/27/KL_divergence.html  
+https://hoya012.github.io/blog/cross_entropy_vs_kl_divergence/
+
+다음은 김태희 조교님이 25조 채널에 남겨주신 글을 요약한 것
+
+* 일반적으로 분류문제의 loss는 softmax output에 negative log 를 씌워 cross entropy loss라는 이름으로 사용하게 됩니다
+* softmax output에 negative log를 씌우면 softmax가 확률이기 때문에 likelihood라 볼 수 있습니다 그래서 cross entropy loss를 negative log likelihood라 부르기도 합니다
+* 그럼 cross entropy라는건 무엇이냐? rough하게는 두 확률 분포의 차이를 나타내기 위해 사용합니다. 보통 우리가 모델로 가까워지고자 하는 확률 분포는 training set의 분포이기 때문에 이 확률 분포를 기준으로 모델이 해당 확률 분포를 근사하기 위해 열심히 optimization을 한다고 생각해주시면 됩니다
+* 따라서, cross entropy 공식에 따라 분류 모델의 loss를 minimize하도록 식을 세우면 softmax output에 negative log 씌운 결과값을 minimize하는 것과 완전히 동일하게 됩니다
+* 또 cross entropy는 entropy + KL divergence로 이루어져 있는데요 cross entropy를 minimize하는 것은  KL divergence를 minimize하는 것과 같습니다. KL term을 제외한 부분(entropy)이 고정된 상수값이어서, minimize하는 관점에서는 KL divergence를 minimize하는 것과 같게 됩니다
