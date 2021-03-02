@@ -55,3 +55,8 @@
   * 바슈타인 거리
 
 * 최대 가능도 추정법은 쿨백-라이블러 발산을 최소화 하는 것과 같음
+
+다음은 cross entropy에 대해 정말 잘 정리된 글이다. 참고해보자
+https://hyunw.kim/blog/2017/10/14/Entropy.html  
+https://hyunw.kim/blog/2017/10/26/Cross_Entropy.html  
+https://hyunw.kim/blog/2017/10/27/KL_divergence.html  
