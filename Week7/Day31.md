@@ -1,7 +1,20 @@
 # Day 31 - Image Classification 1, Annotation data efficient learning
 
-Data가 신경망 안에 녹아들어있다
-녹아들어있는 data를 이용해 classification을 수행한다
+- [Day 31 - Image Classification 1, Annotation data efficient learning](#day-31---image-classification-1-annotation-data-efficient-learning)
+  - [Image Classification 1](#image-classification-1)
+    - [Image Classification](#image-classification)
+    - [CNN architectures for image classification 1](#cnn-architectures-for-image-classification-1)
+      - [LeNet-5](#lenet-5)
+      - [AlexNet](#alexnet)
+      - [VGGNet](#vggnet)
+  - [Annotation data efficient learning](#annotation-data-efficient-learning)
+    - [Data Augmentation](#data-augmentation)
+    - [Leveraging Pre-Trained Information](#leveraging-pre-trained-information)
+      - [transfer learning](#transfer-learning)
+      - [Teacher-Student Learning](#teacher-student-learning)
+      - [knowledge distillation](#knowledge-distillation)
+    - [Leveraging Unlabeled Dataset For Training](#leveraging-unlabeled-dataset-for-training)
+      - [Self-Training](#self-training)
 
 ## Image Classification 1
 
