@@ -18,6 +18,6 @@
 
 * [Week 6 - 특별 강의](./Week6/README.md)
 
-* Week 7
+* [Week 7 - Computer Vision (POSTECH 오태현 교수님)](./Week7/README.md)
 
 * Week 8
