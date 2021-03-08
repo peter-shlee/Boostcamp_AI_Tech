@@ -208,6 +208,9 @@
   * student model의 출력이 teacher model의 출력과 유사해지도록 만들어야 한다
   * 그냥 softmax를 사용하면 값이 0 or 1에 치우쳐있어 학습이 어렵다
   * soft prediction을 사용하여 출력을 smooth하게 만들어 주면 teacher model의 output에 더 가깝게 근사할 수 있다
+
+    ![Leveraging pre-trained information](./img/day31/pretrained6.png)
+
 * 최종적으로 학습시킬 때에는 distillation loss와 student loss를 적절하게 가중 합하여 back propagation 한다
 
 ### Leveraging Unlabeled Dataset For Training
@@ -215,14 +218,14 @@
 * 전체 data 중 labeled data는 극히 일부이다
 * unlabeled data를 어떻게 하면 학습에 이용할 수 있을까?
 
-    ![Leveraging pre-trained information](./img/day31/pretrained6.png)
+    ![Leveraging pre-trained information](./img/day31/pretrained7.png)
 
 #### Self-Training
 
 * self-training은 labeled data를 이용해 unlabeled data에 pseudo label을 붙여 학습에 이용한다
 * label이 없는 data와 있는 data를 함께 사용하는 semi-supervised learning이다
 
-    ![Leveraging pre-trained information](./img/day31/pretrained7.png)
+    ![Leveraging pre-trained information](./img/day31/pretrained8.png)
 
 * 학습 순서는 다음과 같다
   1. labeled data로 model(teacher model)을 학습시킨다
