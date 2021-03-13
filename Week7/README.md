@@ -6,7 +6,7 @@
 
 * [Day 32 - Image Classification 2, Semantic segmentation](./Day32.md)
 
-* Day 33 - Object detection, CNN Visualization
+* [Day 33 - Object detection, CNN Visualization](./Day33.md)
 
 * Day 34 - Instance/Panoptic segmentation and landmark localization, Conditional Generative Model
 
