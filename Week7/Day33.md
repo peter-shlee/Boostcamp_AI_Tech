@@ -205,3 +205,86 @@
     ![object detection](./img/day33/objectDetection16.png)
 
 ## CNN Visualization
+
+### Visualizing CNN
+
+* CNN visualization을 이용하여 블랙박스같은 CNN의 내부를 시각화해서 관찰할 수 있음
+* 이를 이용하여 디버깅이나 성능 향상에 이용함
+* 시각화에는 보통 앞쪽의 layer를 이용함. 뒤쪽 layer는 매우 고차원의 tensor로 이루어져 있어 인간이 직관적으로 관찰하고 이해하기 힘들기 때문.
+* NN visualization에는 크게 두가지 종류가 있음
+  1. model 자체를 이해하기 위한 분석 (analysis of model behaviors)
+  2. 왜 이런 결과가 나왔는지를 분석 (model decision explanation)
+
+### Analysis of model behaviors
+
+#### embedding feature analysis
+
+* image의 embedding feature를 구한 뒤, embedding feature를 이용하여 유사한 image를 검색
+  
+    ![visualizing](./img/day33/visualizing1.png)
+
+* 이 때 나오는 embedding feature는 매우 고차원의 vector 공간에 존재하기 때문에 시각화하기에는 어려움이 있음 
+* dimensionality reduction (차원 축소)하여 사람이 이해하기 쉽게 변환하여 시각화 함
+* t-SNE는 대표적인 차원 축소 방법 중 하나임
+  
+    ![visualizing](./img/day33/visualizing2.png)
+
+#### activation investigation
+
+CNN에서 나오는 activation map을 분석해 CNN 내부를 시각화하는 방법
+
+* Layer activation
+  * mid, high layer에서 나오는 activation으로 mask를 만들어 해당 activation이 관찰하는 부분이 어디인지 확인하는 방법
+  * 아래 사진은 AlexNet의 conv5의 138번째 channel과, 53번째 channel을 분석한 결과임
+  
+    ![visualizing](./img/day33/visualizing3.png)
+
+* Maximally activating patches
+  * 이것 역시 activation을 분석하여 해당 activation이 관찰하는 영역이 어디인지 확인하는 방법임
+  * 분석 방법은 다음의 순서로 진행됨
+    1. 분석 할 activation을 선택한다
+    2. input을 넣고 forward를 수행하며 해당 activation map을 기록해둔다
+    3. 해당 activation map에서 값이 가장 큰 영역의 receptive field를 가져와 확인한다
+  *  아래 사진을 보면 image에서 circle 형태를 찾는 hidden node, curved 형태를 찾는 hidden node, 잘린 circle을 찾는 hidden node 등이 있는 것을 알 수 있다
+  *  각각의 hidden node가 담당하는 역할이 정해져 있음을 확인할 수 있다
+  
+    ![visualizing](./img/day33/visualizing4.png)
+
+* Class visualization
+  * network가 기억하고있는 이미지가 어떤 것인지 분석
+  * 특정 class에 대한 score가 높은 image를 찾아내는 것 (생성해 내는 것)
+  * CNN에서 출력된 class score를 이용하여 model이 담고있는 image를 뽑아냄
+  
+    ![visualizing](./img/day33/visualizing5.png)
+
+    위와 같은 image가 결과물로 나온다
+
+    ![visualizing](./img/day33/visualizing8.png)
+  
+    ![visualizing](./img/day33/visualizing9.png)
+
+  * 분석을 원하는 class의 class score가 최대화 되는 방향으로 input을 학습시킴
+  * 이렇게 input을 학습하면 특정 class에 대해 높은 score를 output으로 내는 input을 찾아낼 수 있음. 이것이 바로 model이 내부적으로 담고있는 해당 class에 대한 image라고 볼 수 있음
+  * 다음의 loss function과 gradient ascent를 이용함
+  
+    ![visualizing](./img/day33/visualizing6.png)
+  
+    ![visualizing](./img/day33/visualizing7.png)
+
+  * $argmax_if(I)$에서 f()는 CNN, I는 input image를 의미
+  * class score가 높아지는 방향으로 학습해야 하기 때문에 gradient ascent를 사용함
+  * (-) 부호만 붙이면 원래 학습에 사용하던 gradient descent가 되기 때문에 쉽게 학습할 수 있음
+  * 왼쪽의 argmax term만 이용했을 떄에는 image가 아닌 것이 결과로 나올 수 있음 (value가 0~255 사이의 값 (색상 값)을 벗어나는 등)
+  * 이렇게 잘못된 output이 나오는 것을 방지하고 우리가 해석할 수 있는 영상이 결과로 나오도록 유도하기 위해 $Reg(I)$ term이 필요함
+  * regularization term은 앞에 (-) 부호를 붙여 input의 L2 norm이 작아지도록 하는 역할을 함 (L2 norm의 값이 작아질수록 output이 우리가 해석할 수 있는 영상이 됨)
+  * regularization term의 $\lambda$는 값이 변경되는 정도를 control하는 역할 (learning rate와 유사한 역할)
+  * input까지 gradient를 전달하는 backpropagation으로 입력 자체를 변화(학습)시켜 loss 값을 키운다
+  * 학습 과정에서 input에만 학습이 진행되고, model 자체에는 변화가 없을 것으로 생각됨
+
+### Model decision explanation
+
+#### saliency test
+
+#### backpropagate features
+
+#### class activation mapping (CAM)
