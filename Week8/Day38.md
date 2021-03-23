@@ -35,3 +35,31 @@
 
     ![pruning](./img/Day38/pruning2.png)
 
+    ![pruning](./img/Day38/pruning3.png)
+
+#### Unstructured Pruning
+
+* tensor의 특정 성분(보통 가장 끼치는 영향(weighted sum)이 적은 성분을 선택)만 0으로 만드는 방법
+* 이 경우 GPU를 이용해 연산할 때는 Pruning을 통한 성능 향상을 얻지 못할수도 있음 (행렬 하나를 통째로 병렬처리하여 연산하기 떄문에)
+* weighted sum이 가장 작은 element부터 하나씩 골라 pruning 한다는 점에서 structured pruning보다 더 좋은 성능을 기대할 수 있음
+
+#### Structured Pruning
+
+* 특정 channel, filter 등을 선택해 통째로 날려버리는 방법
+* 이 경우 inference 시 행렬 하나에 대한 연산이 통째로 사라져버리기 떄문에 확실하게 inference speed 속도 향상을 기대할 수 있음
+* 다만 비교적 중요한 가중치도 같이 pruning되기 떄문에 unstructured pruning보다는 정확도가 조금 떨어질 수 있음
+
+#### Iterative Pruning
+
+* Pruning을 할 떄는 fine tuning을 통해 다시 accuracy를 높여주는 작업이 필요함
+* 하지만 fine tuning을 이용해 accuracy를 올리는 데는 한계치가 있음
+* pruning을 했을 때 이 한계치보다 더 많이 accuracy가 떨어지도록 pruning을 하면 fine tuning을 해도 accuracy가 회복되지 않음
+* 따라서 조금씩 pruning하고, fine tuning하여 다시 accuracy를 올리는 형식으로 iterative pruning을 해야 함
+
+    ![pruning](./img/Day38/pruning4.png)
+
+    ![pruning](./img/Day38/pruning5.png)
+
+    iterative pruning 알고리즘
+
+
