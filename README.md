@@ -21,3 +21,5 @@
 * [Week 7 - Computer Vision (POSTECH 오태현 교수님)](./Week7/README.md)
 
 * [Week 8 - 모델경량화 (nota 홍원의 마스터님)](./Week8/README.md)
+
+* [그냥 해본 기본 개념 정리](./etc/21-03-24.md)
