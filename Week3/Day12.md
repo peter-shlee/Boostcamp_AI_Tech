@@ -82,6 +82,8 @@
 * RMSprop
 * Adam
 
+이 블로그에 잘 정리되어 있으니 참고하자 http://shuuki4.github.io/deep%20learning/2016/05/20/Gradient-Descent-Algorithm-Overview.html
+
 ## Regularization
 
 * Regularization은 의도적으로 학습을 방해해 overfitting을 방지하는 것임
