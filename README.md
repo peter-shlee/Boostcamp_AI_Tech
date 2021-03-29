@@ -1,10 +1,8 @@
 # Boostcamp AI Tech (2021)
 
-* 부스트캠프 AI Tech 학습정리
+부스트캠프 AI Tech 학습정리
 
 ## U Stage
-
-### 목차
 
 * [Week 1 - Python Basics For AI (가천대 최성철 교수님)](./Week1/README.md)
 
@@ -23,3 +21,13 @@
 * [Week 8 - 모델경량화 (nota 홍원의 마스터님)](./Week8/README.md)
 
 * [그냥 해본 기본 개념 정리](./etc/21-03-24.md)
+
+## P Stage
+
+* [Stage 1 - 이미지 분류](./P-Stage-1/README.md)
+
+* Stage 2 - KLUE
+
+* Stage 3 - Semantic Segmentation
+
+* Stage 4 - OCR
