@@ -4,7 +4,7 @@
 
 * [Day 1 - EDA](./Day1.md)
 
-* Day 2
+* [Day 2 - Data Feeding](./Day2.md)
 
 * Day 3
 
