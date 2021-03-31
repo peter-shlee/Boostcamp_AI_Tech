@@ -1,4 +1,4 @@
-# Day 2 - 
+# Day 2 - Data Feeding
 
 ## 오늘의 목표
 
