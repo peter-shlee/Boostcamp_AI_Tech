@@ -6,7 +6,7 @@
 
 * [Day 2 - Data Feeding](./Day2.md)
 
-* Day 3
+* [Day 3 - Model](./Day3.md)
 
 * Day 4
 
