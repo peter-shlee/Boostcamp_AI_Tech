@@ -23,6 +23,8 @@
   * 6, 7번째 epoch에서는 accuracy가 73%, 10번쨰 epoch에서 75%가 나옴
 * augmentation 방법이 잘못된 듯 하다. 이 부분을 개선해봐야겠음.
 
+![accuracy](./img/day2/accuracy.png)
+
 ## 앞으로 할일
 
 * augmentation 제대로 적용해보기
