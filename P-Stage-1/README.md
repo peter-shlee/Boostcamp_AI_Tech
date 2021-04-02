@@ -8,7 +8,7 @@
 
 * [Day 3 - Model](./Day3.md)
 
-* Day 4
+* [Day 4 - Training & inference](./Day4.md)
 
 * Day 5
 
