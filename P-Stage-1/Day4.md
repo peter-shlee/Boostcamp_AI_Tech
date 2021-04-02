@@ -20,7 +20,7 @@
 * 어떤게 문제인지 확인하기 위해 horizontal flip과 center crop만 사용해봤는데, 이번에도 결과는 좋지 않았다 accuracy 4%가 나왔다
 * augmentation을 사용하는 과정에서 무언가 문제가 있는것은 분명하다. 이걸 해결하는게 우선적으로 해야 할 일인 듯 하다
 
-![accuracy](./img/day3/accuracy.png)
+![accuracy](./img/day4/accuracy.png)
 
 ## 앞으로 할일
 
