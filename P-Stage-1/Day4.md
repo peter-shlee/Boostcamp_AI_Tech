@@ -12,7 +12,7 @@
   * accuracy와 f1 score 모두 올랐다. accuracy 최댓값은 76%, f1 score 최댓값은 0.71
 * 어제 augmentation 했을 때 accuracy가 매우 낮았던 원인을 찾아보기 위해 augmentation된 image들을 화면에 출력하여 눈으로 확인해봤다
   * affine을 적용했을 떄 사진이 일그러지는 것을 확인했다. 이런 사진을 train에 사용하는 것은 별로 좋지 않을 것 같아 affine은 사용하지 않기로 했다
-  * rotation은 -10~10도 사이의 값을 랜덤으로 적용하고 있었는데, 10도 rotation도 좀 큰것 같아서 -5~5도 사이로 조절했다.
+  * rotation은 -10 ~ 10도 사이의 값을 랜덤으로 적용하고 있었는데, 10도 rotation도 좀 큰것 같아서 -5 ~ 5도 사이로 조절했다.
   * CenterCrop(300)으로 하면 몇몇 사진에서는 머리카락 부분이나 턱 부분이 잘려나간 것을 확인했다. CenterCrop(350)으로 범위를 좀 키웠다.
   * 사실 그다지 큰 문제는 확인하지 못했다. 잘 안되는 다른 이유가 있을 듯 하다
 * center crop만 사용했을 때는 결과가 좋았으니 다시 resize(256, 256), normalize, random rotation, random horizontal flip을 모두 사용해 보았다
