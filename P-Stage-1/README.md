@@ -14,7 +14,7 @@
 
 * Day 6
 
-* Day 7
+* [Day 7](./Day7.md)
 
 * Day 8
 
