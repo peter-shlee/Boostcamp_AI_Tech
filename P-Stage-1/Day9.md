@@ -15,7 +15,8 @@
 * 앙상블의 효과가 매우 좋다는 것을 발견하고, 다양한 앙상블 방법을 시도
   * 기존에 나는 efficient net b4만 계속해서 사용했기 떄문에 이 model의 output만 갖고있었음
   * ResNet을 이용하여 학습을 하고, 그 중 괜찮은 결과물을 앙상블에 포함시키기로 함
-  * wide ResNet 50과 ResNet 152를 학습시킨 뒤 그 결과물을 efficient net 결과물 3개와 합쳐 앙상블함
+  * wide ResNet 50과 ResNet 152를 학습시킨 뒤 그 결과물을 efficient net 결과물 3개와 합쳐 앙상블함  
+  (AdamP, focal loss, lr = 1e-4, epoch=4~5, centerCrop(350), Horizontal flip 50% 확률로 적용, randomRotation(-5, 5) 30% 확률로 적용, normalization)
 * 이렇게 해서 최종 결과물이 나왔음. accuracy 80.9524%, f1 score 0.7666
   * 아쉽게도 오늘 제출 횟수를 다 써버려 난 여기에서 competition을 끝냈음
   * 이후 대회 마감까지 2시간동안 순위가 밀려 최종 public leader board의 등수는 29/224등
