@@ -12,12 +12,12 @@
 
 * [Day 5 - More...](./Day5.md)
 
-* Day 6
+* Day 6 - 별로 한것이 없어 정리 안함...
 
-* [Day 7](./Day7.md)
+* [Day 7 - age filtering](./Day7.md)
 
-* Day 8
+* [Day 8 - 여러가지 시도](./Day8.md)
 
-* Day 9
+* [Day 9 - 대회 마지막 날, 앙상블](./Day9.md)
 
 * Day 10
