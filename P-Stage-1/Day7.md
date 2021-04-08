@@ -1,6 +1,6 @@
 # Day 7
 
-## 오늘의 목표
+## 오늘의 목표 - age filtering
 
 * accuracy 높이기
 * k-fold data set 구성, 학습
