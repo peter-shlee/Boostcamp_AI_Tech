@@ -1,4 +1,4 @@
-# Stage 1 - 이미지 분류
+# Stage 1 - 이미지 분류 (Image Classification Competition)
 
 ## 목차
 
@@ -20,4 +20,4 @@
 
 * [Day 9 - 대회 마지막 날, 앙상블](./Day9.md)
 
-* Day 10
+* [Day 10 - Competition 종료, 마무리](./Day10.md)
