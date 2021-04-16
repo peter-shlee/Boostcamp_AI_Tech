@@ -26,7 +26,7 @@
 
 * [Stage 1 - 이미지 분류](./P-Stage-1/README.md)
 
-* Stage 2 - KLUE
+* [Stage 2 - KLUE](./P-Stage-2/README.md)
 
 * Stage 3 - Semantic Segmentation
 
