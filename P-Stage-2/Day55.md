@@ -13,7 +13,7 @@
 * k-fold에 사용할 dataset을 구축했다
   * 9000개의 train data를 6개의 fold로 나누었다 (7500:1500)
 
-  ![EDA](./img/day55Accuracy.png)
+  ![accuracy](./img/day55Accuracy.png)
 
 ## 앞으로 할 일
 
