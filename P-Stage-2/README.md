@@ -12,7 +12,7 @@
 
 * [Day 55 - pre-trained model 사용](./Day55.md)
 
-* Day 56
+* [Day 56 - K fold ensemble](./Day56.md)
 
 * Day 57
 
