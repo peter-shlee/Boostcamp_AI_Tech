@@ -17,4 +17,4 @@
 * 위와 같이 code를 수정하면 pre-trained model을 사용할 수 있음
 * 오늘은 제출 횟수를 다 써서 결과는 내일 알 수 있다
 
-  ![EDA](./img/day54Accuracy.png)
+![accuracy](./img/day54Accuracy.png)
