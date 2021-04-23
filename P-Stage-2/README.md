@@ -14,10 +14,10 @@
 
 * [Day 56 - K fold ensemble](./Day56.md)
 
-* Day 57
+* [Day 57 - 외부 데이터 추가](./Day57.md)
 
-* Day 58
+* [Day 58 - RoBERTa](./Day58.md)
 
-* Day 59
+* [Day 59 - 앙상블](./Day59.md)
 
 * Day 60
