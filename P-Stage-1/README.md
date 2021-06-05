@@ -2,6 +2,8 @@
 
 ## 목차
 
+* [Code](https://github.com/shlee4290/p1-img-shlee4290)
+
 * [Day 41 - EDA](./Day1.md)
 
 * [Day 42 - Data Feeding](./Day2.md)
@@ -11,8 +13,6 @@
 * [Day 44 - Training & inference](./Day4.md)
 
 * [Day 45 - More...](./Day5.md)
-
-* Day 46 - 별로 한것이 없어 정리 안함...
 
 * [Day 47 - age filtering](./Day7.md)
 

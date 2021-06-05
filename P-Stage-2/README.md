@@ -2,9 +2,7 @@
 
 ## 목차
 
-* Day 51
-
-* Day 52
+* [Code](https://github.com/shlee4290/p2-klue-shlee4290)
 
 * [Day 53 - 첫번째 submission](./Day53.md)
 
@@ -19,5 +17,3 @@
 * [Day 58 - RoBERTa](./Day58.md)
 
 * [Day 59 - 앙상블](./Day59.md)
-
-* Day 60
