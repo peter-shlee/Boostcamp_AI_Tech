@@ -28,6 +28,6 @@
 
 * [Stage 2 - KLUE](./P-Stage-2/README.md)
 
-* Stage 3 - Semantic Segmentation
+* [Stage 3 - Semantic Segmentation & Object Detection](./P-Stage-3/README.md)
 
 * Stage 4 - OCR
